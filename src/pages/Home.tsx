@@ -154,7 +154,7 @@ const Home = () => {
               }}
             />
             <motion.img
-              src="./src/images/gv.jpg"
+              src="https://i.ibb.co/bg06vcfw/gv.jpg"
               alt="Adithya GV"
               className="rounded-2xl shadow-lg object-cover w-full h-auto relative top-20 z-10"
               whileHover={{ scale: 1.05 }}
