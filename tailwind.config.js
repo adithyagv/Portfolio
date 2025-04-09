@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter var', 'sans-serif'],
+        sans: ['Poppins', 'sans-serif'],
         display: ['Poppins', 'sans-serif'],
       },
       colors: {
@@ -20,6 +20,7 @@ export default {
           700: '#0f766e',
           800: '#115e59',
           900: '#134e4a',
+          950: '#800080',
         },
       },
       animation: {

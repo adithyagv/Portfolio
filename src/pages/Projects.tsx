@@ -1,49 +1,65 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Github, ExternalLink, Filter } from 'lucide-react';
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 }
-};
+import { motion, AnimatePresence } from 'framer-motion';
+import { Github, ExternalLink, Filter, Sparkles } from 'lucide-react';
 
 const Projects = () => {
   const [filter, setFilter] = React.useState('all');
+  const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(null);
+
+  const fadeInUp = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.5, ease: [0.6, -0.05, 0.01, 0.99] }
+  };
 
   const projects = [
     {
-      title: "E-commerce Platform",
-      description: "A full-stack e-commerce solution with real-time inventory management",
-      image: "https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      category: "fullstack",
-      tech: ["Next.js", "Node.js", "PostgreSQL"],
-      github: "#",
-      demo: "#"
+      title: "AFStyleHub",
+      description: "A full stack fashion detection and management system",
+      image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      category: ["fullstack", "web"],
+      tech: ["React.js", "Node.js", "MongoDB", "Express.js"],
+      github: "https://github.com/adithyagv/AFStyleHub.git",
+      demo: "https://afstylehub.vercel.app/"
     },
     {
-      title: "Social Media Dashboard",
-      description: "Analytics dashboard for social media management",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      category: "web",
-      tech: ["React", "TailwindCSS", "Chart.js"],
-      github: "#",
-      demo: "#"
+      title: "SeatPal",
+      description: "A web app for booking and managing event seats",
+      image: "https://images.unsplash.com/photo-1468359601543-843bfaef291a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGV2ZW50JTIwbWFuYWdlbWVudHxlbnwwfHwwfHx8MA%3D%3D",
+      category: ["fullstack", "web"],
+      tech: ["React.js", "Node.js", "Express.js", "MongoDB", "Python", "AI/ML"],
+      github: "https://github.com/adithyagv/Seat-secure.git",
+      demo: "https://seat-secure.vercel.app/"
     },
     {
-      title: "Fitness Tracking App",
-      description: "Mobile app for tracking workouts and nutrition",
-      image: "https://images.unsplash.com/photo-1461344577544-4e5dc9487184?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      title: "Samaya",
+      description: "Mobile app for a temple community",
+      image: "https://images.unsplash.com/photo-1573352763925-82bd5dfc31d1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8dGVtcGxlfGVufDB8fDB8fHww",
       category: "app",
-      tech: ["React Native", "Firebase", "Redux"],
+      tech: ["React Native"],
+      github: "https://github.com/adithyagv/Samaya.git",
+      demo: "#"
+    },
+    {
+      title: "The Soul",
+      description: "An AI-powered app for sentiment detection and analysis and also a virtual companion",
+      image: "https://plus.unsplash.com/premium_photo-1682023587356-86065925727a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2hhdGJvdHxlbnwwfHwwfHx8MA%3D%3D",
+      tech: ["Python Flask", "AI/ML", "React.js"],
+      category: ["fullstack", "web"],
       github: "#",
       demo: "#"
     }
   ];
 
-  const filteredProjects = filter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === filter);
+  const filteredProjects = filter === 'all'
+    ? projects
+    : projects.filter(project => 
+        Array.isArray(project.category) 
+          ? project.category.includes(filter)
+          : project.category === filter
+      );
+
+  const categories = ['all', 'web', 'app', 'fullstack'];
 
   return (
     <motion.div
@@ -53,47 +69,36 @@ const Projects = () => {
       className="min-h-screen py-16"
     >
       <div className="container-padding">
-        <div className="text-center mb-12">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-16"
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="inline-block mb-4"
+          >
+            <span className="px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-sm font-medium text-white/90">
+              <Sparkles className="w-4 h-4 inline-block mr-2" />
+              Portfolio Projects
+            </span>
+          </motion.div>
           <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-display font-bold mb-4"
+            className="text-4xl md:text-6xl font-display font-bold mb-4 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent"
           >
             My Projects
           </motion.h1>
           <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-xl text-gray-600 dark:text-gray-300"
+            className="text-xl text-white/80 max-w-2xl mx-auto"
           >
             Showcasing my best work and creative solutions
           </motion.p>
-        </div>
-
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="flex justify-center gap-4 mb-12"
-        >
-          {['all', 'web', 'app', 'fullstack'].map((category) => (
-            <button
-              key={category}
-              onClick={() => setFilter(category)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors
-                ${filter === category 
-                  ? 'bg-primary-500 text-white' 
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700'}`}
-            >
-              <Filter className="w-4 h-4 inline-block mr-2" />
-              {category.charAt(0).toUpperCase() + category.slice(1)}
-            </button>
-          ))}
         </motion.div>
 
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="flex flex-wrap justify-center gap-4 mb-12"
           variants={{
             show: {
               transition: {
@@ -104,44 +109,111 @@ const Projects = () => {
           initial="hidden"
           animate="show"
         >
-          {filteredProjects.map((project, index) => (
-            <motion.div
-              key={index}
-              variants={fadeInUp}
-              className="card group"
+          {categories.map((category, index) => (
+            <motion.button
+              key={category}
+              onClick={() => setFilter(category)}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className={`
+                px-6 py-3 rounded-full text-sm font-medium transition-all duration-300
+                flex items-center gap-2 backdrop-blur-md
+                ${filter === category 
+                  ? 'bg-white/20 text-white shadow-lg shadow-white/10 scale-105' 
+                  : 'bg-white/10 text-white/70 hover:bg-white/15 hover:text-white hover:scale-105'
+                }
+              `}
             >
-              <div className="relative overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
-                  <a href={project.github} className="p-2 bg-white rounded-full hover:bg-primary-50">
-                    <Github className="w-6 h-6 text-gray-800" />
-                  </a>
-                  <a href={project.demo} className="p-2 bg-white rounded-full hover:bg-primary-50">
-                    <ExternalLink className="w-6 h-6 text-gray-800" />
-                  </a>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((tech, techIndex) => (
-                    <span 
-                      key={techIndex}
-                      className="px-3 py-1 bg-primary-50 dark:bg-primary-900/10 text-primary-600 dark:text-primary-400 rounded-full text-sm"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
+              <Filter className="w-4 h-4" />
+              {category.charAt(0).toUpperCase() + category.slice(1)}
+            </motion.button>
           ))}
         </motion.div>
+
+        <AnimatePresence mode="wait">
+          <motion.div 
+            key={filter}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                initial="initial"
+                animate="animate"
+                whileHover={{ y: -10 }}
+                onHoverStart={() => setHoveredIndex(index)}
+                onHoverEnd={() => setHoveredIndex(null)}
+                className="group relative bg-white/10 backdrop-blur-md rounded-xl overflow-hidden"
+              >
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-primary-500/20 to-primary-700/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                />
+                <div className="relative aspect-video overflow-hidden">
+                  <motion.img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                    initial={{ scale: 1 }}
+                    animate={{ scale: hoveredIndex === index ? 1.1 : 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                  <motion.div 
+                    className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300
+                             flex items-center justify-center gap-6"
+                  >
+                    {project.github && (
+                      <motion.a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        className="p-3 bg-white rounded-full hover:bg-primary-50 transition-colors duration-300"
+                      >
+                        <Github className="w-6 h-6 text-gray-900" />
+                      </motion.a>
+                    )}
+                    {project.demo && (
+                      <motion.a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        className="p-3 bg-white rounded-full hover:bg-primary-50 transition-colors duration-300"
+                      >
+                        <ExternalLink className="w-6 h-6 text-gray-900" />
+                      </motion.a>
+                    )}
+                  </motion.div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2 text-white">{project.title}</h3>
+                  <p className="text-white/80 mb-4">{project.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((tech, techIndex) => (
+                      <motion.span 
+                        key={techIndex}
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: techIndex * 0.1 }}
+                        className="px-3 py-1 bg-white/10 text-white/90 rounded-full text-sm backdrop-blur-sm"
+                      >
+                        {tech}
+                      </motion.span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
       </div>
     </motion.div>
   );
