@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Github, ExternalLink, Filter, Sparkles } from 'lucide-react';
-import { desc } from 'framer-motion/client';
+import { desc, image } from 'framer-motion/client';
 
 const Projects = () => {
-  const [filter, setFilter] = React.useState('all');
+  const [filter, setFilter] = React.useState('All');
   const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(null);
 
   const fadeInUp = {
@@ -73,6 +73,14 @@ const Projects = () => {
       tech:["Figma"],
       category: ["UI/UX"],
       demo:"https://www.figma.com/design/xrH9CXT1Oep7g5ncWPZI7Y/ZOA-Marching-towards-0-hunger?node-id=1-344&t=l0P7BNWXC9XrRzd7-1"
+    },
+    {
+      title: "Nokia",
+      description: "A web app for Nokia's new product launch",
+      image: "https://images.unsplash.com/photo-1530388684420-55a62e95ed82?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bm9raWF8ZW58MHx8MHx8fDA%3D", 
+      tech: ["Figma"],
+      category: ["UI/UX"],
+      demo:"https://www.figma.com/design/rW8eeeiShkWxBD1VNLPsWc/dashboard?node-id=0-1&t=WoJa71iunhqEXEOr-1"
     }
   ];
 
