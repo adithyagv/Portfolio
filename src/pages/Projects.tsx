@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Github, ExternalLink, Filter, Sparkles } from 'lucide-react';
+import { desc } from 'framer-motion/client';
 
 const Projects = () => {
   const [filter, setFilter] = React.useState('all');
@@ -17,7 +18,7 @@ const Projects = () => {
       title: "AFStyleHub",
       description: "A full stack fashion detection and management system",
       image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      category: ["fullstack", "web"],
+      category: [ "Web"],
       tech: ["React.js", "Node.js", "MongoDB", "Express.js"],
       github: "https://github.com/adithyagv/AFStyleHub.git",
       demo: "https://afstylehub.vercel.app/"
@@ -26,7 +27,7 @@ const Projects = () => {
       title: "SeatPal",
       description: "A web app for booking and managing event seats",
       image: "https://images.unsplash.com/photo-1468359601543-843bfaef291a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGV2ZW50JTIwbWFuYWdlbWVudHxlbnwwfHwwfHx8MA%3D%3D",
-      category: ["fullstack", "web"],
+      category: ["Web"],
       tech: ["React.js", "Node.js", "Express.js", "MongoDB", "Python", "AI/ML"],
       github: "https://github.com/adithyagv/Seat-secure.git",
       demo: "https://seat-secure.vercel.app/"
@@ -35,7 +36,7 @@ const Projects = () => {
       title: "Samaya",
       description: "Mobile app for a temple community",
       image: "https://images.unsplash.com/photo-1573352763925-82bd5dfc31d1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8dGVtcGxlfGVufDB8fDB8fHww",
-      category: "app",
+      category: "App",
       tech: ["React Native"],
       github: "https://github.com/adithyagv/Samaya.git",
       demo: "#"
@@ -45,13 +46,37 @@ const Projects = () => {
       description: "An AI-powered app for sentiment detection and analysis and also a virtual companion",
       image: "https://plus.unsplash.com/premium_photo-1682023587356-86065925727a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2hhdGJvdHxlbnwwfHwwfHx8MA%3D%3D",
       tech: ["Python Flask", "AI/ML", "React.js"],
-      category: ["fullstack", "web"],
+      category: ["Web"],
       github: "#",
       demo: "#"
+    },
+    { title: "Hospital Management System",
+      description: "A web app for managing hospital announcements using nodemailer",
+      image: "https://media.istockphoto.com/id/1394769128/photo/nurse-with-medical-file-at-hospital.webp?a=1&b=1&s=612x612&w=0&k=20&c=_WDw4-j4RF0rEDyinLaFz9nlxu43C6vB1m3ThPfBPYE=",
+      category: [ "Web"],
+      tech: ["React.js", "Node.js", "Express.js"],
+      github: "https://github.com/adithyagv/hospital-management-system.git",
+      demo: "https://hospital-management-system-dun.vercel.app/"
+    }, 
+    {
+      title: "Cricket Scoreboard System",
+      description: "A web app for managing cricket scores and player statistics",
+      image: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y3JpY2tldHxlbnwwfHwwfHx8MA%3D%3D",
+      tech : ["Python","MySQL"],
+      github:"https://github.com/adithyagv/cricket-scoreboard-system.git",
+      category: ["App"]
+    },
+    {
+      title: "Zoa",
+      description: "A web app that takes an initiative to reduce food waste", 
+      image:"https://plus.unsplash.com/premium_photo-1673108852141-e8c3c22a4a22?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D",
+      tech:["Figma"],
+      category: ["UI/UX"],
+      demo:"https://www.figma.com/design/xrH9CXT1Oep7g5ncWPZI7Y/ZOA-Marching-towards-0-hunger?node-id=1-344&t=l0P7BNWXC9XrRzd7-1"
     }
   ];
 
-  const filteredProjects = filter === 'all'
+  const filteredProjects = filter === 'All'
     ? projects
     : projects.filter(project => 
         Array.isArray(project.category) 
@@ -59,7 +84,7 @@ const Projects = () => {
           : project.category === filter
       );
 
-  const categories = ['all', 'web', 'app', 'fullstack'];
+  const categories = ['All', 'Web', 'App','UI/UX'];
 
   return (
     <motion.div

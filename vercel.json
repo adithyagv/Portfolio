@@ -1,9 +1,17 @@
 {
-    "rewrites": [
-      {
-        "source": "/((?!_next|favicon.ico|robots.txt|images|public|static|.*\\.(png|jpg|jpeg|gif|svg|webp|ico|js|css|woff|woff2|ttf|eot|otf|txt|json|pdf)).*)",
-        "destination": "/"
-      }
-    ]
-  }
-  
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/resume/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    }
+  ]
+}
