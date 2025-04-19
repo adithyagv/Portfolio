@@ -53,7 +53,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
       icon: <Phone className="w-6 h-6" />,
       title: "Phone Call",
       description: "Let's have a quick chat",
-      action: "+919003682783",
+      action: "call:+919003682783",
       external: true,
     },
     {
