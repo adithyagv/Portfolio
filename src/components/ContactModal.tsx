@@ -60,8 +60,8 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
       icon: <MessageSquare className="w-6 h-6" />,
       title: "Send a Message",
       description: "Quick message for quick response",
-      action: "#contact-form",
-      external: false,
+      action:"sms:+919003682783?body=Hey%20there%2C%20I%20saw%20your%20portfolio%21",
+      external: true,
     },
   ];
 
