@@ -116,7 +116,13 @@ const Resume = () => {
       issuer: "IC3C International Conference",
       date: "2025",
     
+    },
+    {
+      title: "AI/ML Engineering Exam",
+      issuer:"NDSA by Central Government of India",
+      date: "2025",
     }
+
   ];
 
   return (
