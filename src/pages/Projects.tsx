@@ -42,11 +42,11 @@ const Projects = () => {
       demo: "#"
     },
     {
-      title: "The Soul",
+      title: "Soul AI",
       description: "An AI-powered app for sentiment detection and analysis and also a virtual companion",
       image: "https://plus.unsplash.com/premium_photo-1682023587356-86065925727a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2hhdGJvdHxlbnwwfHwwfHx8MA%3D%3D",
       tech: ["Python Flask", "AI/ML", "React.js"],
-      category: ["Web"],
+      category: ["App"],
       github: "#",
       demo: "#"
     },
