@@ -272,7 +272,7 @@ const Home = () => {
               'React.js', 'Java', 'Firebase', 'Angular.js',
               'Node.js', 'JavaScript', 'TypeScript', 'MongoDB',
               'React Native', 'Python', 'Figma', 'Framer',
-              'WebFlow', 'Git', 'GitHub', 'HTML5', 'CSS3'
+              'WebFlow', 'Git', 'GitHub', 'HTML5', 'CSS3','Python Flask'
             ].map((tech, index) => (
               <motion.div
                 key={index}
