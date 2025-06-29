@@ -152,7 +152,7 @@ const Home = () => {
               }}
             />
             <motion.img
-              src="https://ibb.co/6RFwyZnv"
+              src="https://i.ibb.co/zhZxm5n8/gv.jpg"
               alt="Adithya GV"
               className="rounded-2xl shadow-lg object-cover w-full h-auto relative top-20 z-10"
               whileHover={{ scale: 1.05 }}
