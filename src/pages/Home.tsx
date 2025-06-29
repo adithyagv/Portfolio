@@ -59,13 +59,12 @@ const Home = () => {
         onClose={() => setIsContactModalOpen(false)} 
       />
 
-      {/* Hero Section */}
       <motion.section 
         className="relative min-h-[90vh] flex items-center justify-center px-6 md:px-12"
         style={{ opacity, scale }}
       >
         <div className="container-padding w-full flex flex-col md:flex-row items-center justify-between gap-12 ">
-          {/* Left side: Text */}
+          
           <motion.div
             variants={fadeInUp}
             className="text-center md:text-left max-w-xl z-10"
@@ -136,7 +135,6 @@ const Home = () => {
           </motion.div>
           
 
-          {/* Right side: Image */}
           <motion.div
             variants={fadeInUp}
             className="relative w-[250px] md:w-[400px] z-10"
