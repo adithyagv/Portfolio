@@ -267,10 +267,10 @@ const Home = () => {
             className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4"
           >
             {[
-              'React.js', 'Java', 'Firebase', 'Angular.js',
-              'Node.js', 'JavaScript', 'TypeScript', 'MongoDB',
+              'Mendix','Next.js','React.js', 'Java', 'Firebase', 'Angular.js',
+              'Node.js', 'JavaScript', 'TypeScript', 'MongoDB','SQL',
               'React Native', 'Python', 'Figma', 'Framer',
-              'WebFlow', 'Git', 'GitHub', 'HTML5', 'CSS3','Python Flask'
+              'WebFlow', 'Git', 'GitHub', 'HTML5','SCSS(Sass)', 'CSS3','Python Flask'
             ].map((tech, index) => (
               <motion.div
                 key={index}

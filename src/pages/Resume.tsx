@@ -159,7 +159,7 @@ const Resume = () => {
             >
               <Download className="w-4 h-4 mr-2" />
               <a 
-                href="/Adithya%20GV-Resume.pdf" 
+                href="/AdithyaGV-Resume.pdf" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-white"
